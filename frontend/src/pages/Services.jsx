@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { memo } from "react";
 
-/* 🔹 Images */
+/* 🔹 QR + Logo */
+import qrImage from "../assets/qr.png";
+import logo from "../assets/logo.png";
+
+/* 🔹 Makeup Images */
 import Img1 from "../assets/1.jpg";
 import Img2 from "../assets/2.jpg";
 import Img3 from "../assets/3.jpg";
@@ -25,7 +29,18 @@ import Img20 from "../assets/DSC_0113.jpg";
 import Img21 from "../assets/DSC_0114.jpg";
 import Img22 from "../assets/DSC_0115.jpg";
 
-/* 🔹 Data */
+/* 🔹 Top Salon Services */
+const topServices = [
+  { title: "Haircut & Styling", desc: "Professional haircut with premium wash & blow-dry styling.", price: "₹799" },
+  { title: "Hair Coloring", desc: "Global color, highlights, balayage & ammonia-free shades.", price: "₹2,499+" },
+  { title: "Keratin / Smoothening", desc: "Advanced hair smoothening & keratin repair treatment.", price: "₹3,999+" },
+  { title: "Facial & Cleanup", desc: "Glow, anti-aging & hydration facials using luxury products.", price: "₹1,199+" },
+  { title: "Manicure & Pedicure", desc: "Spa manicure & pedicure with massage & scrub therapy.", price: "₹999+" },
+  { title: "Nail Art & Extensions", desc: "Gel nails, acrylic extensions, chrome & custom nail art.", price: "₹1,499+" },
+  { title: "Makeup Services", desc: "Party, bridal & HD makeup by certified professionals.", price: "₹2,999+" },
+];
+
+/* 🔹 Makeup Services */
 const services = [
   { title: "Light Makeup", price: "₹2,999", img: Img1 },
   { title: "Party Makeup", price: "₹3,999", img: Img2 },
@@ -51,29 +66,15 @@ const services = [
   { title: "Urban Wedding Airbrush Look", price: "₹34,999", img: Img22 },
 ];
 
-/* 🔹 Card */
+/* 🔹 Makeup Card */
 const Card = memo(function Card({ title, price, img, priority }) {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
-      initial={false}
-      className="
-        bg-[#fffaf3]
-        rounded-2xl
-        shadow-lg
-        overflow-hidden
-        border-l-8
-        border-yellow-500
-        will-change-transform
-        grid
-        grid-cols-1
-        md:grid-cols-12
-        items-center
-      "
+      className="bg-[#fffaf3] rounded-2xl shadow-lg overflow-hidden border-l-8 border-yellow-500 grid grid-cols-1 md:grid-cols-12 items-center"
     >
-      {/* Image */}
-      <div className="md:col-span-4 bg-gray-200">
+      <div className="md:col-span-4">
         <img
           src={img}
           alt={title}
@@ -83,25 +84,16 @@ const Card = memo(function Card({ title, price, img, priority }) {
         />
       </div>
 
-      {/* Text Content */}
-      <div className="md:col-span-5 px-6 py-6">
-        <h3 className="text-2xl font-serif text-yellow-700 mb-2">
-          {title}
-        </h3>
-
-        <p className="text-gray-700 leading-relaxed">
-          Professional premium makeup service designed to enhance your natural
-          beauty with long-lasting, flawless results suitable for every occasion.
+      <div className="md:col-span-5 px-6 py-6 flex flex-col justify-center">
+        <h3 className="text-2xl font-serif text-yellow-700 mb-2">{title}</h3>
+        <p className="text-gray-700">
+          Professional premium makeup service with flawless finish.
         </p>
       </div>
 
-      {/* Price + CTA */}
-      <div className="md:col-span-3 px-6 py-6 text-left md:text-right">
-        <p className="text-2xl font-bold text-black mb-4">
-          {price}
-        </p>
-
-        <button className="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full transition">
+      <div className="md:col-span-3 px-6 py-6 flex flex-col justify-center items-start md:items-end">
+        <p className="text-2xl font-bold text-black mb-4">{price}</p>
+        <button className="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full">
           Book Now
         </button>
       </div>
@@ -109,23 +101,80 @@ const Card = memo(function Card({ title, price, img, priority }) {
   );
 });
 
-/* 🔹 Main Component */
-export default function MakeupServices() {
+/* 🔹 Main Page */
+export default function ServicesPage() {
   return (
     <div className="bg-gradient-to-b from-yellow-500 to-yellow-600 min-h-screen py-20">
-      <h1 className="text-4xl md:text-5xl font-serif text-white text-center mb-14">
-        Makeup Services
-      </h1>
 
-      <div className="max-w-6xl mx-auto px-6 flex flex-col gap-10">
-        {services.map((service, index) => (
-          <Card
-            key={index}
-            {...service}
-            priority={index < 2}
-          />
-        ))}
-      </div>
+      {/* 🔹 QR + Logo Section */}
+      <section className="flex flex-col items-center gap-12 mb-32 px-4 md:px-6">
+
+        {/* Full-width white QR background */}
+        <div className="w-full rounded-2xl bg-[#fffdf5] py-12 shadow-xl px-4 md:px-8">
+          <div className="max-w-3xl mx-auto flex justify-center">
+            <img
+              src={qrImage}
+              alt="Scan QR"
+              loading="eager"
+              className="w-48 h-48 md:w-56 md:h-56"
+            />
+          </div>
+        </div>
+
+        {/* Full-width logo background */}
+        <div className="w-full rounded-2xl bg-[#f2f2f2] py-12 shadow-xl px-6 md:px-12 lg:px-16">
+          <div className="max-w-3xl mx-auto flex flex-col items-center">
+            <img
+              src={logo}
+              alt="360 Academy"
+              loading="eager"
+              className="h-20 md:h-24 object-contain"
+            />
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Tagline below logo */}
+            <p className="mt-4 text-xl md:text-2xl font-serif text-white text-center">
+              A Family Salon • Luxury Beauty Experience
+            </p> <br/> <br/>
+
+      {/* 🔹 Top Services */}
+      <section className="max-w-5xl mx-auto px-4 md:px-6 mb-24">
+        <h1 className="text-4xl md:text-5xl font-serif text-white text-center mb-14">
+          Our Services
+        </h1>
+
+        <div className="flex flex-col gap-6">
+          {topServices.map((s, i) => (
+            <div
+              key={i}
+              className="bg-[#fffaf3] rounded-2xl shadow-md p-6 border-l-8 border-yellow-500 flex flex-col md:flex-row md:items-center md:justify-between"
+            >
+              <div className="flex-1">
+                <h3 className="text-2xl font-serif text-yellow-700 mb-2">{s.title}</h3>
+                <p className="text-gray-700 max-w-xl">{s.desc}</p>
+              </div>
+
+              <div className="mt-4 md:mt-0 text-lg font-bold">{s.price}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 🔹 Makeup Services */}
+      <section className="mb-32 px-4 md:px-6">
+        <h2 className="text-4xl font-serif text-white text-center mb-14">
+          Makeup Services
+        </h2>
+
+        <div className="max-w-6xl mx-auto flex flex-col gap-10">
+          {services.map((service, index) => (
+            <Card key={index} {...service} priority={index < 2} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
