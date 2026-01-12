@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+import { memo } from "react";
 
-/* 🔹 Images import from src/assets */
+/* 🔹 Images */
 import Img1 from "../assets/1.jpg";
 import Img2 from "../assets/2.jpg";
 import Img3 from "../assets/3.jpg";
@@ -24,7 +25,7 @@ import Img20 from "../assets/DSC_0113.jpg";
 import Img21 from "../assets/DSC_0114.jpg";
 import Img22 from "../assets/DSC_0115.jpg";
 
-/* 🔹 Services Data (22 images) */
+/* 🔹 Data */
 const services = [
   { title: "Light Makeup", price: "₹2,999", img: Img1 },
   { title: "Party Makeup", price: "₹3,999", img: Img2 },
@@ -50,46 +51,59 @@ const services = [
   { title: "Urban Wedding Airbrush Look", price: "₹34,999", img: Img22 },
 ];
 
-/* 🔹 Card Component */
-function Card({ title, price, img }) {
+/* 🔹 Card (memoized) */
+const Card = memo(function Card({ title, price, img, priority }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-      className="bg-[#fffaf3] rounded-2xl shadow-xl overflow-hidden border-l-8 border-yellow-500"
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.2 }}
+      initial={false}
+      className="bg-[#fffaf3] rounded-2xl shadow-lg overflow-hidden border-l-8 border-yellow-500 will-change-transform"
     >
-      {/* Image */}
-      <img src={img} alt={title} className="w-full h-64 object-cover" />
+      <div className="bg-gray-200">
+        <img
+          src={img}
+          alt={title}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          className="w-full h-64 object-cover aspect-[4/3]"
+        />
+      </div>
 
-      {/* Content */}
       <div className="p-6">
-        <h3 className="text-2xl font-serif text-yellow-700 mb-2">{title}</h3>
-        <p className="text-gray-700 mb-4">Professional premium makeup service</p>
+        <h3 className="text-2xl font-serif text-yellow-700 mb-2">
+          {title}
+        </h3>
+
+        <p className="text-gray-700 mb-4">
+          Professional premium makeup service
+        </p>
+
         <p className="text-xl font-bold text-black">{price}</p>
+
         <button className="mt-4 px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full transition">
           Book Now
         </button>
       </div>
     </motion.div>
   );
-}
+});
 
-/* 🔹 Main Component */
+/* 🔹 Main */
 export default function MakeupServices() {
   return (
     <div className="bg-gradient-to-b from-yellow-500 to-yellow-600 min-h-screen py-20">
-      <motion.h1
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-serif text-white text-center mb-14"
-      >
+      <h1 className="text-4xl md:text-5xl font-serif text-white text-center mb-14">
         Makeup Services
-      </motion.h1>
+      </h1>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {services.map((service, index) => (
-          <Card key={index} {...service} />
+          <Card
+            key={index}
+            {...service}
+            priority={index < 3} // 👈 only first row eager loads
+          />
         ))}
       </div>
     </div>
