@@ -175,6 +175,11 @@ export default function ServicesPage() {
           ))}
         </div>
       </section>
+
+       {/*  */}
+            <p className="mt-4 text-xl md:text-2xl font-inter text-white text-center">
+              © 360 Salon • Best Ladies Beauty Parlour in Varanasi
+            </p> <br/> <br/>
     </div>
   );
 }
