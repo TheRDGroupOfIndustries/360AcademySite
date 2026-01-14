@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 /* 🔹 QR + Logo */
-import qrImage from "../assets/qr.png";
+import qrImage from "../assets/qrLatest.jpeg";
 import logo from "../assets/logo4.jpeg";
 
 /* 🔹 Makeup Images */
@@ -87,7 +87,7 @@ const Card = memo(function Card({ title, price, img, priority }) {
       <div className="md:col-span-3 px-6 py-6 flex flex-col items-start md:items-end">
         <p className="text-2xl font-bold mb-4">{price}</p>
         <a
-          href={`https://wa.me/919997690669?text=${encodeURIComponent(`Hello, I want to book: ${title}`)}`}
+          href={`https://wa.me/916389121360?text=${encodeURIComponent(`Hello, I want to book: ${title}`)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full"
