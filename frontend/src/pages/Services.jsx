@@ -1,9 +1,8 @@
-import { motion } from "framer-motion";
 import { memo } from "react";
 
 /* 🔹 QR + Logo */
 import qrImage from "../assets/qr.png";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo4.jpeg";
 
 /* 🔹 Makeup Images */
 import Img1 from "../assets/1.jpg";
@@ -66,120 +65,92 @@ const services = [
   { title: "Urban Wedding Airbrush Look", price: "₹34,999", img: Img22 },
 ];
 
-/* 🔹 Makeup Card */
+/* 🔹 Card */
 const Card = memo(function Card({ title, price, img, priority }) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
-      className="bg-[#fffaf3] rounded-2xl shadow-lg overflow-hidden border-l-8 border-yellow-500 grid grid-cols-1 md:grid-cols-12 items-center"
-    >
+    <div className="bg-[#fffaf3] rounded-2xl overflow-hidden border-l-8 border-yellow-500 grid grid-cols-1 md:grid-cols-12 items-center shadow-[0_2px_10px_rgba(0,0,0,0.18)] transition-transform duration-200 hover:scale-[1.02]">
       <div className="md:col-span-4">
         <img
           src={img}
           alt={title}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          className="w-full h-64 md:h-full object-cover"
+          className="w-full h-64 md:h-full object-cover will-change-transform"
         />
       </div>
 
-      <div className="md:col-span-5 px-6 py-6 flex flex-col justify-center">
+      <div className="md:col-span-5 px-6 py-6">
         <h3 className="text-2xl font-serif text-yellow-700 mb-2">{title}</h3>
-        <p className="text-gray-700">
-          Professional premium makeup service with flawless finish.
-        </p>
+        <p className="text-gray-700">Professional premium makeup service with flawless finish.</p>
       </div>
 
-      <div className="md:col-span-3 px-6 py-6 flex flex-col justify-center items-start md:items-end">
-        <p className="text-2xl font-bold text-black mb-4">{price}</p>
-        <button className="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full">
+      <div className="md:col-span-3 px-6 py-6 flex flex-col items-start md:items-end">
+        <p className="text-2xl font-bold mb-4">{price}</p>
+        <a
+          href={`https://wa.me/919997690669?text=${encodeURIComponent(`Hello, I want to book: ${title}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-6 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full"
+        >
           Book Now
-        </button>
+        </a>
       </div>
-    </motion.div>
+    </div>
   );
 });
 
-/* 🔹 Main Page */
+/* 🔹 Page */
 export default function ServicesPage() {
   return (
-    <div className="bg-gradient-to-b from-yellow-500 to-yellow-600 min-h-screen py-20">
-
-      {/* 🔹 QR + Logo Section */}
-      <section className="flex flex-col items-center gap-12 mb-32 px-4 md:px-6">
-
-        {/* Full-width white QR background */}
-        <div className="w-full rounded-2xl bg-[#fffdf5] py-12 shadow-xl px-4 md:px-8">
-          <div className="max-w-3xl mx-auto flex justify-center">
-            <img
-              src={qrImage}
-              alt="Scan QR"
-              loading="eager"
-              className="w-48 h-48 md:w-56 md:h-56"
-            />
-          </div>
+    <div className="bg-[#cdb21a] min-h-screen pt-5 pb-8">
+      {/* QR + Logo */}
+      <section className="flex flex-col gap-5 mb-8 px-4 md:px-6">
+        <div className="w-full rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.18)] py-4">
+          <img src={qrImage} alt="QR" className="mx-auto w-48 md:w-56" />
         </div>
 
-        {/* Full-width logo background */}
-        <div className="w-full rounded-2xl bg-[#f2f2f2] py-12 shadow-xl px-6 md:px-12 lg:px-16">
-          <div className="max-w-3xl mx-auto flex flex-col items-center">
-            <img
-              src={logo}
-              alt="360 Academy"
-              loading="eager"
-              className="h-20 md:h-24 object-contain"
-            />
-            
-          </div>
+        <div className="w-full rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.18)] py-4">
+          <img src={logo} alt="Logo" className="mx-auto h-20 md:h-24 object-contain" />
         </div>
       </section>
 
-      {/* Tagline below logo */}
-            <p className="mt-4 text-xl md:text-2xl font-serif text-white text-center">
-              A Family Salon • Luxury Beauty Experience
-            </p> <br/> <br/>
+      <p className="text-xl md:text-2xl font-serif text-white text-center mb-10">
+        A Family Salon • Luxury Beauty Experience
+      </p>
 
-      {/* 🔹 Top Services */}
-      <section className="max-w-5xl mx-auto px-4 md:px-6 mb-24">
-        <h1 className="text-4xl md:text-5xl font-serif text-white text-center mb-14">
+      {/* Top Services */}
+      <section className="max-w-5xl mx-auto px-4 mb-12">
+        <h1 className="text-4xl md:text-5xl font-serif text-white text-center mb-10">
           Our Services
         </h1>
 
         <div className="flex flex-col gap-6">
           {topServices.map((s, i) => (
-            <div
-              key={i}
-              className="bg-[#fffaf3] rounded-2xl shadow-md p-6 border-l-8 border-yellow-500 flex flex-col md:flex-row md:items-center md:justify-between"
-            >
-              <div className="flex-1">
-                <h3 className="text-2xl font-serif text-yellow-700 mb-2">{s.title}</h3>
-                <p className="text-gray-700 max-w-xl">{s.desc}</p>
-              </div>
-
-              <div className="mt-4 md:mt-0 text-lg font-bold">{s.price}</div>
+            <div key={i} className="bg-[#fffaf3] rounded-2xl p-6 shadow-[0_2px_10px_rgba(0,0,0,0.18)] border-l-8 border-yellow-500">
+              <h3 className="text-2xl font-serif text-yellow-700 mb-2">{s.title}</h3>
+              <p className="text-gray-700">{s.desc}</p>
+              <p className="font-bold mt-2">{s.price}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 🔹 Makeup Services */}
-      <section className="mb-32 px-4 md:px-6">
-        <h2 className="text-4xl font-serif text-white text-center mb-14">
+      {/* Makeup */}
+      <section className="px-4">
+        <h2 className="text-4xl font-serif text-white text-center mb-10">
           Makeup Services
         </h2>
 
-        <div className="max-w-6xl mx-auto flex flex-col gap-10">
-          {services.map((service, index) => (
-            <Card key={index} {...service} priority={index < 2} />
+        <div className="max-w-6xl mx-auto flex flex-col gap-8">
+          {services.map((s, i) => (
+            <Card key={i} {...s} priority={i < 2} />
           ))}
         </div>
       </section>
 
-       {/*  */}
-            <p className="mt-4 text-xl md:text-2xl font-inter text-white text-center">
-              © 360 Salon • Best Ladies Beauty Parlour in Varanasi
-            </p> <br/> <br/>
+      <p className="text-sm md:text-lg text-white text-center mt-10">
+        © 360 Academy • Best Ladies Beauty Parlour in Varanasi
+      </p>
     </div>
   );
 }
