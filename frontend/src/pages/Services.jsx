@@ -105,7 +105,7 @@ export default function ServicesPage() {
     <div className="bg-[#cdb21a] min-h-screen pt-5 pb-8">
       {/* QR + Logo */}
       <section className="flex flex-col gap-5 mb-8 px-4 md:px-6">
-        <div className="w-full rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.18)] py-4">
+        <div className="w-full rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.18)] py-0">
           <img src={qrImage} alt="QR" className="mx-auto w-48 md:w-56" />
         </div>
 
