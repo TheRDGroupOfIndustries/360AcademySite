@@ -75,7 +75,7 @@ const Card = memo(function Card({ title, price, img, priority }) {
           alt={title}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
-          className="w-full h-64 md:h-full object-cover will-change-transform"
+          className="w-full h-64 md:h-full object-cover"
         />
       </div>
 
@@ -103,9 +103,10 @@ const Card = memo(function Card({ title, price, img, priority }) {
 export default function ServicesPage() {
   return (
     <div className="bg-[#cdb21a] min-h-screen pt-5 pb-8">
+
       {/* QR + Logo */}
       <section className="flex flex-col gap-5 mb-8 px-4 md:px-6">
-        <div className="w-full rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.18)] py-0">
+        <div className="w-full rounded-2xl bg-white shadow-[0_2px_10px_rgba(0,0,0,0.18)]">
           <img src={qrImage} alt="QR" className="mx-auto w-48 md:w-56" />
         </div>
 
@@ -136,7 +137,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Makeup */}
-      <section className="px-4">
+      <section className="px-4 mb-14">
         <h2 className="text-4xl font-serif text-white text-center mb-10">
           Makeup Services
         </h2>
@@ -148,7 +149,26 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <p className="text-sm md:text-lg text-white text-center mt-10">
+      {/* 🔹 Visit Us Box */}
+      <section className="px-4 mb-12">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.18)] p-6 text-center">
+          <h3 className="text-3xl font-serif text-yellow-700 mb-4">
+            Visit Us
+          </h3>
+
+          <p className="text-gray-800 leading-relaxed">
+            <strong>360 ACADEMY</strong>, opposite SURABHI INTERNATIONAL HOTEL,<br />
+            Ganpathi Nagar, Paharia,<br />
+            Varanasi, Uttar Pradesh 221007
+          </p>
+
+          <p className="mt-4 text-lg font-bold">
+            Contact: <a href="tel:+916389121360" className="text-yellow-600">+91 63891 21360</a>
+          </p>
+        </div>
+      </section>
+
+      <p className="text-sm md:text-lg text-white text-center">
         © 360 Academy • Best Ladies Beauty Parlour in Varanasi
       </p>
     </div>
