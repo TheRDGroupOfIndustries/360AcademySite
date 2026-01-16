@@ -7,8 +7,8 @@ import logo from "../assets/logo4.jpeg";
 /* 🔹 Makeup Images */
 import Img1 from "../assets/lightMakeup.JPG";
 import Img2 from "../assets/partyMakeup.JPG";
-import Img3 from "../assets/ExclusivePartymakeup.jpg";
-import Img4 from "../assets/ExclusiveAirbrushPartyMakeup.JPG";
+import Img3 from "../assets/ExclusivePartyMakeup.jpg";
+import Img4 from "../assets/ExclusiveAirbrushPartymakeup.JPG";
 import Img5 from "../assets/naturalGlamEngagementMakeup.jpg";
 import Img6 from "../assets/sparklingEngagementMakeup.jpg";
 import Img7 from "../assets/UrbanEngagementMakeup.jpg";
