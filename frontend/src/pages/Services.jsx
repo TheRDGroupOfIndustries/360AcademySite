@@ -5,28 +5,28 @@ import qrImage from "../assets/qrLatest3.jpeg";
 import logo from "../assets/logo4.jpeg";
 
 /* 🔹 Makeup Images */
-import Img1 from "../assets/1.jpg";
-import Img2 from "../assets/2.jpg";
-import Img3 from "../assets/3.jpg";
-import Img4 from "../assets/4.jpg";
-import Img5 from "../assets/DSC_0140.jpg";
-import Img6 from "../assets/6.jpg";
-import Img7 from "../assets/7.jpg";
-import Img8 from "../assets/8.jpg";
-import Img9 from "../assets/9.jpg";
-import Img10 from "../assets/DSC_0624.jpg";
-import Img11 from "../assets/6920.jpg";
-import Img12 from "../assets/DSC_0001.jpg";
-import Img13 from "../assets/DSC_0019.jpg";
-import Img14 from "../assets/DSC_0070.jpg";
-import Img15 from "../assets/DSC_0085.jpg";
-import Img16 from "../assets/DSC_0095.jpg";
-import Img17 from "../assets/DSC_0107.jpg";
-import Img18 from "../assets/DSC_0111.jpg";
-import Img19 from "../assets/DSC_0112.jpg";
-import Img20 from "../assets/DSC_0113.jpg";
-import Img21 from "../assets/DSC_0114.jpg";
-import Img22 from "../assets/DSC_0115.jpg";
+import Img1 from "../assets/lightMakeup.JPG";
+import Img2 from "../assets/partyMakeup.JPG";
+import Img3 from "../assets/ExclusivePartyMakeup.JPG";
+import Img4 from "../assets/ExclusiveAirbrushPartyMakeup.JPG";
+import Img5 from "../assets/naturalGlamEngagementMakeup.JPG";
+import Img6 from "../assets/sparklingEngagementMakeup.JPG";
+import Img7 from "../assets/UrbanEngagementMakeup.JPG";
+import Img8 from "../assets/opulentEngagementMakeup.JPG";
+import Img9 from "../assets/naturalGlamReceptionMakeup.JPG";
+import Img10 from "../assets/SparklingReceptionMakeup.JPG";
+import Img11 from "../assets/UrbanReceptionMakeup.JPG";
+import Img12 from "../assets/opulentReceptionMakeup.JPG";
+import Img13 from "../assets/classicCreamMakeup.jpg";
+import Img14 from "../assets/ClassicCreamHDMakeup.jpg";
+import Img15 from "../assets/ClassicUltraHDMakeup.jpg";
+import Img16 from "../assets/liquidGlamAirbrushLook.JPG";
+import Img17 from "../assets/matteWeddingLook.jpg";
+import Img18 from "../assets/TraditionalWeddingLook.jpg";
+import Img19 from "../assets/DazzlingDivaWeddingLook.jpg";
+import Img20 from "../assets/DazzlingDivaAirbrushWeddingLook.jpg";
+import Img21 from "../assets/UrbanWeddingLook.jpg";
+import Img22 from "../assets/UrbanWeddingAirbrushLook.jpg";
 
 /* 🔹 Top Salon Services */
 const topServices = [
