@@ -2,7 +2,7 @@ import { memo } from "react";
 
 /* 🔹 QR + Logo */
 import qrImage from "../assets/qrLatest3.jpeg";
-import logo from "../assets/logo4.jpeg";
+import logo from "../assets/logo5.jpeg";
 
 /* 🔹 Makeup Images */
 import Img1 from "../assets/lightMakeup.JPG";
